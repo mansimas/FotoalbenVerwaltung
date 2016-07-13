@@ -19,5 +19,5 @@ end
 gem 'rails_12factor', group: :production
 gem 'heroku'
 gem 'devise'
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
 gem 'jquery-turbolinks'

@@ -2,6 +2,7 @@
  *= require_tree .
  *= require_self
  *= require dropzone.css
+ *= require bootstrap_and_overrides
  */
 
 ul#menu li {
