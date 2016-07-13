@@ -14,7 +14,8 @@ class AlbumsController < ApplicationController
 
   # GET /albums/new
   def new
-    @album = Album.new
+    @album = Album.create!(:user_id => current_user.id)
+    redirect_to edit_album_path(@album)
   end
 
   # GET /albums/1/edit
@@ -58,6 +59,17 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to albums_url, notice: 'Album was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def add_photo
+    @album = Album.find_by(:id => params[:photo][:album_id])
+    if(params[:file])
+        @album.upload(params)
+    end
+    respond_to do |format|
+        format.html { render :edit }
+        format.json { head :no_content }
     end
   end
 

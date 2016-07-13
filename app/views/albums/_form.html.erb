@@ -1,3 +1,11 @@
+<%= form_for(Photo.new, html: { multipart: true, class: "dropzone", id: "dropzone"}) do |f| %>
+    <%= f.hidden_field :album_id, :value => @album.id %>
+
+    <div class="fallback">
+        <%= f.file_field :photo %>
+    </div>
+<% end %>
+
 <%= form_for(@album) do |f| %>
   <% if @album.errors.any? %>
     <div id="error_explanation">
