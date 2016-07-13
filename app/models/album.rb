@@ -1,8 +1,8 @@
 class Album < ActiveRecord::Base
 	include ActionView::Helpers::NumberHelper
 	belongs_to :user
-  has_many :photos
-	has_many :comments
+  has_many :photos, :dependent => :destroy
+	has_many :comments, :dependent => :destroy
 
 	def upload(params)
       random_nr = rand(1000..9999)

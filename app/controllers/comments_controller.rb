@@ -28,8 +28,6 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        puts 'aaaaaaaaaaaaaaaaaaa'
-        puts params
         if params[:from_albums]
           format.html { redirect_to album_path(id: @comment.album_id), notice: 'Comment was successfully created.' }
         else

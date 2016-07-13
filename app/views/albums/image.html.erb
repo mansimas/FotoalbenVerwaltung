@@ -19,12 +19,11 @@
 	<%= f.hidden_field :photo_id, :value => @photo.id %>
 
 	  <div class="field">
-	    <%= f.label :description %><br>
 	    <%= f.cktext_area :description  %>
 	  </div>
 
 	  <div class="actions">
-	    <%= f.submit %>
+	    <%= f.submit 'Submit', :class => 'btn btn-default'%>
 	  </div>
 	<% end %>
 <% end %>
