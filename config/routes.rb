@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
   
   root 'albums#index'
-  get 'home/index'
   post 'photos' => 'albums#add_photo'
   get 'image' => 'albums#image'
 

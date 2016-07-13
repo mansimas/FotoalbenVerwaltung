@@ -3,8 +3,31 @@
 <br>
 
 <%= image_tag "/assets/images/#{@photo.photo_file_name}", size: "1000x700" %>
+<br>
+<br>
+<% @photo.comments.each do |comment| %>
+	<span style='color:green'><%= comment.user.name %></span>
+	<%= comment.created_at %>
+	<div class="thumbnail">
+		<%= comment.description.html_safe %>
+	</div>
+<% end %>
 
-<img src="/assets/foo-2179b43e243cf343.png" />
+<% if current_user %>
+	<%= form_for(Comment.new) do |f| %>
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :photo_id, :value => @photo.id %>
+
+	  <div class="field">
+	    <%= f.label :description %><br>
+	    <%= f.cktext_area :description  %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
+<% end %>
 
 <br>
 <br>

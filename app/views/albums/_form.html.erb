@@ -7,9 +7,9 @@
     </div>
 <% end %>
 
-  <% @album.photos.each do |photo| %>
-      <%= image_tag "/assets/images/#{photo.photo_file_name}", size: "150x150" %>
-  <% end %>
+<% @album.photos.each do |photo| %>
+    <%= image_tag "/assets/images/#{photo.photo_file_name}", size: "150x150" %>
+<% end %>
 
 <%= form_for(@album) do |f| %>
   <% if @album.errors.any? %>
