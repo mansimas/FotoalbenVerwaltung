@@ -25,14 +25,19 @@
   <% end %>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
-
-  <div class="field">
-    <%= f.label :title %><br>
+<br>
+<br>
+  <div class="row">
+    <div class='col-md-7'>
+    Title:
     <%= f.text_field :title %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+  <div class="row">
+    <div class='col-md-8'>
+    Description:
+    <%= f.cktext_area :description %>
+    </div>
   </div>
 
   <div class="actions">

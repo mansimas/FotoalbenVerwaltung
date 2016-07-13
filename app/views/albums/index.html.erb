@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th><%= sortable 'title' %></th>
-      <th>Description</th>
       <th>User</th>
       <th colspan="3"></th>
     </tr>
@@ -20,7 +19,6 @@
         <%= image_tag("/assets/images/#{album.photos.first.photo_file_name}", size: "50x50") %>
         <% end %>
         <%= album.title %></td>
-        <td><%= album.description %></td>
         <td><%= album.user.name %></td>
         <td><%= link_to 'Show', album, :class => 'btn btn-default' %></td>
         <% if current_user && current_user.id == album.user_id %>
