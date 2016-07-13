@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy, :image]
+  skip_before_filter :authenticate_user!, :only => [:index, :show]
 
   # GET /albums
   # GET /albums.json
