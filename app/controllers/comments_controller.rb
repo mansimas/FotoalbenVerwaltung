@@ -28,7 +28,13 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to image_path(id: @comment.photo.album_id, photo_id: @comment.photo_id), notice: 'Comment was successfully created.' }
+        puts 'aaaaaaaaaaaaaaaaaaa'
+        puts params
+        if params[:from_albums]
+          format.html { redirect_to album_path(id: @comment.album_id), notice: 'Comment was successfully created.' }
+        else
+          format.html { redirect_to image_path(id: @comment.photo.album_id, photo_id: @comment.photo_id), notice: 'Comment was successfully created.' }
+        end
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -69,6 +75,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:user_id, :photo_id, :description)
+      params.require(:comment).permit(:user_id, :photo_id, :description, :album_id)
     end
 end
