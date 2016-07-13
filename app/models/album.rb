@@ -15,8 +15,8 @@ class Album < ActiveRecord::Base
     end
 
     def write_file(image_name, params)
-    	FileUtils.mkdir_p('public/images') unless File.directory?('public/images')
-    	File.open(Rails.root.join('public', 'images', image_name), 'wb') do |file|
+    	FileUtils.mkdir_p('public/assets/images') unless File.directory?('public/assets/images')
+    	File.open(Rails.root.join('public', 'assets/images', image_name), 'wb') do |file|
         	file.write(params[:file].read)
       end
 	end
