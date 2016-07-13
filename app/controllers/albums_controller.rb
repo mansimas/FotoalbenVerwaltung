@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_album, only: [:show, :edit, :update, :destroy, :image]
 
   # GET /albums
   # GET /albums.json
@@ -71,6 +71,10 @@ class AlbumsController < ApplicationController
         format.html { render :edit }
         format.json { head :no_content }
     end
+  end
+
+  def image
+    @photo = Photo.find(params[:photo_id])
   end
 
   private
