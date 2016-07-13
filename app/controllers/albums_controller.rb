@@ -1,11 +1,12 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy, :image]
   skip_before_filter :authenticate_user!, :only => [:index, :show, :image]
+  helper_method :sort_column, :sort_direction
 
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all.paginate(:page => params[:page], :per_page => 10)
+    @albums = Album.all.paginate(:page => params[:page], :per_page => 10).order(sort_column + " " + sort_direction)
   end
 
   # GET /albums/1
@@ -89,5 +90,16 @@ class AlbumsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
       params.require(:album).permit(:title, :description, :user_id)
+    end
+
+    def sort_direction
+      %w[desc asc].include?(params[:direction]) ? params[:direction] : 'desc'
+    end
+
+    def sort_column
+      if !params[:sort] || params[:sort] == nil
+        params[:sort] = 'albums.id'
+      end
+      params[:sort]
     end
 end
