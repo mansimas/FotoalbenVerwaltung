@@ -1,19 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @album.title %>
-</p>
+<div class='row'>
+	<div class='col-md-5 col-md-offset-3'>
+		<h2><%= @album.title %></h2>
+	</div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @album.description %>
-</p>
+<div class='row'>
+	<div class='col-md-3 col-md-offset-3'>
+		created of: <%= @album.user.name %>
+	</div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @album.user.name %>
-</p>
+<div class='row'>
+	<div class='col-md-10'><%= @album.description %></div>
+</div>
+<br>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<% @album.photos.each do |photo| %>
+  <%= image_tag "#{photo.photo_file_name}", size: "150x150" %>
+<% end %>
+
+<br>
+<br>
+<%= link_to 'Back', albums_path, :class => 'btn btn-default' %>

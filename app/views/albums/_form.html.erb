@@ -7,13 +7,9 @@
     </div>
 <% end %>
 
-<div class='row'>
   <% @album.photos.each do |photo| %>
-    <div class='col-md-4'>
-      <%= image_tag "#{photo.photo_file_name}", size: "200x200" %>
-    </div>
+      <%= image_tag "#{photo.photo_file_name}", size: "150x150" %>
   <% end %>
-</div>
 
 <%= form_for(@album) do |f| %>
   <% if @album.errors.any? %>
