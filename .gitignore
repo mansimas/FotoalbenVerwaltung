@@ -1,0 +1,10 @@
+/.bundle
+/log/*
+!/log/.keep
+/tmp
+.ruby-version
+.ruby-gemset
+/public/images
+/public/assets
+/public/videos
+dump.rdb
