@@ -1,11 +1,19 @@
+<h1 class='text-center'><%= @photo.album.title %></h1>
+<br>
+<br>
 <%= link_to 'Back', album_path(@photo.album_id), :class => 'btn btn-default' %>
 <br>
 <br>
 
 <%= image_tag "/assets/images/#{@photo.photo_file_name}", size: "1000x700" %>
 <br>
+<%= @photo.photo_file_name %>
 <br>
-<% @photo.comments.each do |comment| %>
+<br>
+
+<%= will_paginate @photo_comments, renderer: BootstrapPagination::Rails %>
+
+<% @photo_comments.each do |comment| %>
 	<span style='color:green'><%= comment.user.name %></span>
 	<%= comment.created_at %>
 	<div class="thumbnail">

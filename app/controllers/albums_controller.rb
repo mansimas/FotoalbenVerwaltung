@@ -5,12 +5,13 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+    @albums = Album.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @album_comments = @album.comments.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /albums/new
@@ -76,6 +77,7 @@ class AlbumsController < ApplicationController
 
   def image
     @photo = Photo.find(params[:photo_id])
+    @photo_comments = @photo.comments.paginate(:page => params[:page], :per_page => 10)
   end
 
   private

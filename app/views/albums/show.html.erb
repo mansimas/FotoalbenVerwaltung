@@ -21,7 +21,9 @@
 
 <br>
 <br>
-<% @album.comments.each do |comment| %>
+
+<%= will_paginate @album_comments, renderer: BootstrapPagination::Rails %>
+<% @album_comments.each do |comment| %>
 	<span style='color:green'><%= comment.user.name %></span>
 	<%= comment.created_at %>
 	<div class="thumbnail">

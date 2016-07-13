@@ -1,5 +1,7 @@
 <h1 class='text-center'>Listing Albums</h1>
 
+<%= will_paginate @albums, renderer: BootstrapPagination::Rails %>
+
 <table class='table table-striped'>
   <thead>
     <tr>
