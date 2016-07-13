@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery.turbolinks
 //= require dropzone
+//= require ckeditor/init
 //= require_tree .

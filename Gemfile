@@ -20,3 +20,6 @@ gem 'rails_12factor', group: :production
 gem 'heroku'
 gem 'devise'
 gem 'jquery-turbolinks'
+gem 'ckeditor'
+gem 'paperclip'
+gem 'aws-sdk', '< 2.0'
