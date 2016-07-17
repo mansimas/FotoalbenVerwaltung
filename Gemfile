@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
-gem 'rails', '4.2.5.1'
-gem 'pg', '~> 0.15'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
+ruby '2.3.1'
+gem 'rails'
+gem 'pg'
+gem 'sass-rails'
+gem 'uglifier'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'jbuilder'
+gem 'sdoc', group: :doc
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
   gem 'spring'
 end
 
@@ -22,6 +22,14 @@ gem 'devise'
 gem 'jquery-turbolinks'
 gem 'ckeditor'
 gem 'paperclip'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+
+gem 'rspec-rails', :group => [:development, :test]
+
+group :test do
+	gem 'factory_girl_rails', :require => false
+	gem 'capybara'
+	gem 'guard-rspec', :require => false
+end 
