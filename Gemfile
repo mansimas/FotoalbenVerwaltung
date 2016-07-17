@@ -32,4 +32,7 @@ group :test do
 	gem 'factory_girl_rails', :require => false
 	gem 'capybara'
 	gem 'guard-rspec', :require => false
+	gem 'selenium-webdriver'
+	gem "capybara-webkit"
+	gem 'database_cleaner'
 end 
