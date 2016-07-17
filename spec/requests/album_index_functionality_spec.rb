@@ -8,9 +8,9 @@ RSpec.describe 'Albums index functionality' do
 		fill_in('Email', with: 'myemail@email.com')
 		fill_in('Password', with: 'mypassword')
 		fill_in('Password confirmation', with: 'mypassword')
-		fill_in('Name', with: 'first')
+		fill_in('Name', with: 'firstName')
 		click_on('Sign up')
-		album = Album.create!(title: 'Album', description: 'Albums description', user_id: 1)
+		album = Album.create!(title: 'Albumblahblah', description: 'Albums description', user_id: 1)
 		Photo.create!(album_id: album.id, photo_file_name: '1234image.png')
 		Photo.create!(album_id: album.id, photo_file_name: '5678image.png')
 	end
@@ -33,6 +33,12 @@ RSpec.describe 'Albums index functionality' do
 		page.should have_no_content('Edit')
 		page.should have_no_content('Destroy')
 		page.should have_no_content('New Album')
+	end
+
+	it 'shows albums title and user name' do 
+		visit(root_path)
+		page.should have_content('Albumblahblah')
+		page.should have_content('firstName')
 	end
 
 end
